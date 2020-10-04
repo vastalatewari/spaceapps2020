@@ -1,0 +1,11 @@
+module oloid(r,h=0.1) {
+   hull() {
+     cylinder(r=r,h=h);
+     translate([0,pow(2,0.5)*r,0])  // two-point roller
+         rotate([0,90,0])
+            cylinder(r=r,h=h);
+   }
+};
+
+$fn=50;
+oloid(20);
