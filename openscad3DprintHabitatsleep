@@ -1,0 +1,26 @@
+Width = 0.5 ;
+Anchor = 45;
+Box = cube(31,1);
+difference() {
+    MyObject();
+    translate([0,0,Box/2]);
+    difference() {
+        translate([0,0,Box/2]);
+        minkowski() {
+            cube(2*Wall,center=true);  
+            difference() {
+                translate([0,0,Box/2]) cube(Box,center=true);
+                MyObject();
+            }
+        }
+    }
+}
+
+module MyObject() {
+    $fn=12;
+    union() {  
+        sphere(10);
+        translate([15,0,0]) ;  
+        cube([3,30,6],center=true);
+    }
+}
